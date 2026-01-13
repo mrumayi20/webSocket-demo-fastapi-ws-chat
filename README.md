@@ -24,6 +24,31 @@ To establish a web socket connection, first a client sends a an HTTP handshake r
 ├── main.py # The FastAPI logic <br>
 ├── index.html # The chat interface <br>
 
+## Full Flow Summary
+
+Browser opens / <br>
+↓<br>
+HTML loads<br>
+↓<br>
+JS opens WebSocket → /ws/{id}<br>
+↓<br>
+Server accepts & stores connection<br>
+↓<br>
+Client sends message<br>
+↓<br>
+Server broadcasts message<br>
+↓<br>
+Client disconnects<br>
+↓<br>
+Server cleans up<br>
+
+## What each import does:
+
+1. FastAPI → creates your web application
+2. WebSocket → represents a WebSocket connection (client ↔ server)
+3. WebSocketDisconnect → exception raised when client disconnects
+4. HTMLResponse → sends raw HTML content as an HTTP response
+
 ## How to run
 
 run below command to run the application
